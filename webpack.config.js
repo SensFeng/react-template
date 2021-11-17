@@ -8,7 +8,8 @@ module.exports = {
   devtool: 'cheap-source-map',
   output: {
     filename: 'main.js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    clean: true,
   },
   devServer: {
     port: 8080,
@@ -23,10 +24,10 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"],
+            // presets: ['@babel/preset-env'],
             plugins: [
-              "@babel/plugin-transform-runtime",
-              ['@babel/plugin-proposal-decorators', {legacy: true }],
-              ['@babel/plugin-proposal-class-properties', { loose: true }],
+              // ['@babel/plugin-proposal-decorators', {legacy: true }],
+              // ['@babel/plugin-proposal-class-properties', { loose: true }],
             ]
           }
         }
@@ -34,7 +35,12 @@ module.exports = {
       {
         test: /\.(css|less)$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
-      }
+      },
+      {
+        test: /\.(jpe?g|png|svg|gif)$/,
+        type: 'asset',
+        include: /src/,
+      },
     ]
   },
   plugins: [

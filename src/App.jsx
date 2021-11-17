@@ -1,14 +1,13 @@
-import React from 'react';
-import Age from './age';
-import {Button} from 'antd';
-import './app.less';
+import React, {useEffect, useState} from 'react';
 
 const App = () => {
-  return <div className='app'>
-    app page
-    <Age />
-    <Button type='primary'>按钮</Button>
-  </div>
+  const [count,setCount] = useState(0)
+  useEffect(() => {
+    console.log('11')
+  }, [count])
+  return (
+    <button>点击按钮</button>
+  )
 };
 
 export default App;

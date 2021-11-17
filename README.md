@@ -19,3 +19,9 @@ react基础模版
 ```js
 cnpm install babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties -D
 ```
+
+
+
+## 未完成
+
+file-loader url-loader的支持

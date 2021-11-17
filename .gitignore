@@ -1,1 +1,7 @@
 node_modules
+dist
+.vscode
+yarn.lock
+yarn-error.log
+npm.lock
+npm-error.log

@@ -3,7 +3,6 @@ import {Input, Button} from 'antd';
 const App = () => {
   const [count,setCount] = useState(0)
   const handleClick = () => {
-    console.log('2')
   }
   return (
     <div>

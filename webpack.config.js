@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-// const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   mode: 'development',
@@ -31,10 +31,10 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
             // presets: ['@babel/preset-env'],
             plugins: [
-              require.resolve('react-refresh/babel')
+              isDevelopment && require.resolve('react-refresh/babel')
               // ['@babel/plugin-proposal-decorators', {legacy: true }],
               // ['@babel/plugin-proposal-class-properties', { loose: true }],
-            ]
+            ].filter(Boolean)
           }
         }
       },
@@ -56,7 +56,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css'
     }),
-    new ReactRefreshPlugin(), 
+    isDevelopment && new ReactRefreshPlugin(), 
   ].filter(Boolean),
   resolve: {
     extensions: ['.js', '.jsx', '.json']

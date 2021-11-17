@@ -4,8 +4,8 @@
   "description": "react基础模版",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
@@ -33,6 +33,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "antd": "^4.16.6",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
     "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.4",

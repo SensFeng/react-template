@@ -1,11 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
+// const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
-  devtool: 'cheap-source-map',
+  cache: false,
+  devtool: 'eval-cheap-module-source-map',
   output: {
     filename: 'main.js',
     path: path.join(__dirname, 'dist'),
@@ -13,7 +17,8 @@ module.exports = {
   },
   devServer: {
     port: 8080,
-    open: true
+    open: true,
+    hot: true
   },
   module: {
     rules: [
@@ -26,6 +31,7 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
             // presets: ['@babel/preset-env'],
             plugins: [
+              require.resolve('react-refresh/babel')
               // ['@babel/plugin-proposal-decorators', {legacy: true }],
               // ['@babel/plugin-proposal-class-properties', { loose: true }],
             ]
@@ -49,8 +55,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    })
-  ],
+    }),
+    new ReactRefreshPlugin(), 
+  ].filter(Boolean),
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   }

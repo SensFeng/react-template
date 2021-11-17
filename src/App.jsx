@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
-
+import {Input, Button} from 'antd';
 const App = () => {
   const [count,setCount] = useState(0)
-  useEffect(() => {
-    console.log('11')
-  }, [count])
+  const handleClick = () => {
+    console.log('2')
+  }
   return (
-    <button>点击按钮</button>
+    <div>
+      <Input />
+      <Button type={'primary'} onClick={handleClick}>点击按钮</Button>
+    </div>
   )
 };
 

@@ -6,10 +6,10 @@ const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  mode: 'development',
+  mode: isDevelopment ? 'development' : 'production',
   entry: './src/index.js',
   cache: false,
-  devtool: 'eval-cheap-module-source-map',
+  devtool: isDevelopment ? 'eval-cheap-module-source-map': false,
   output: {
     filename: 'main.js',
     path: path.join(__dirname, 'dist'),
@@ -28,12 +28,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-            // presets: ['@babel/preset-env'],
+            presets: [
+              ["@babel/preset-env", {
+                "modules": false
+              }], "@babel/preset-react"],
             plugins: [
               isDevelopment && require.resolve('react-refresh/babel')
-              // ['@babel/plugin-proposal-decorators', {legacy: true }],
-              // ['@babel/plugin-proposal-class-properties', { loose: true }],
             ].filter(Boolean)
           }
         }

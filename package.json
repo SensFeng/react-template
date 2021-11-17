@@ -1,6 +1,6 @@
 {
   "name": "react-template",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "react基础模版",
   "main": "webpack.config.js",
   "scripts": {

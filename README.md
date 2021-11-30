@@ -4,7 +4,7 @@ react基础模版
 
 - [x] 支持`git hook`
 - [x] **热更新**
-- [ ] 哈哈
+
 ## loader
 
 ```js
@@ -29,8 +29,6 @@ cnpm install babel-loader @babel/core @babel/preset-env @babel/preset-react @bab
 // file-loader url-loader的支持
 
 
-router
-dva
-布局
+
 
 

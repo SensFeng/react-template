@@ -2,7 +2,9 @@
 
 react基础模版
 
-
+- [x] 支持`git hook`
+- [x] **热更新**
+- [ ] 哈哈
 ## loader
 
 ```js

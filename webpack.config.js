@@ -18,7 +18,7 @@ module.exports = {
   devServer: {
     port: 8080,
     open: true,
-    // hot: true
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -51,7 +51,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: path.join(__dirname, 'public/index.html')
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css'

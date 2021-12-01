@@ -8,13 +8,13 @@ const App = () => {
         <Link to="/" style={{ padding: 5 }}>
           Home
         </Link>
-        <Link to="/about" style={{ padding: 5 }}>
-          About
+        <Link to="/list" style={{ padding: 5 }}>
+          list
         </Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/list" element={<List />} />
       </Routes>
     </Router>
   );
@@ -29,7 +29,7 @@ const Home = () => {
   );
 };
 
-const About = () => {
+const List = () => {
   return (
     <div>
       <h2>About View</h2>
